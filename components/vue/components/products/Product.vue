@@ -1,9 +1,10 @@
 <template>
     <div class="product-item">
         <img :src="item.image" :alt="item.name" class="product-image" />
-        <h2 class="product-name">{{ item.name }}</h2>
+        <h3 class="product-name">{{ item.name }}</h3>
         <p class="product-description">{{ item.description }}</p>
         <p class="product-value">{{ toCurrency(item.value) }}</p>
+        <button class="buy-button" @click="addToCart(item)">Adicionar</button>
     </div>
 </template>
 
@@ -22,12 +23,29 @@ export default {
                 style: 'currency',
                 currency: 'BRL'
             }).format(value);
+        },
+        addToCart(product) {
+            window.store.addItemToCart(product);
+            console.log(window.store);
         }
     }
 }
 </script>
-
 <style scoped>
+    .buy-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover {
+        background-color: #218838;
+    }
 
 .product-item {
     border: 1px solid #ccc;
@@ -38,6 +56,7 @@ export default {
     flex-direction: column;
     justify-content: end;
     align-items: center;
+    gap: 10px
 }
 
 .product-image {

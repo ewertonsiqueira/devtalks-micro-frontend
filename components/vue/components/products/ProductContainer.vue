@@ -19,8 +19,6 @@ export default {
             default: () => []
         }
     },
-    computed: {
-    },
     methods: {
         toCurrency(value) {
             return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -35,6 +33,5 @@ export default {
     grid-template-columns: repeat(3, minmax(200px, 1fr));
     gap: 16px;
     padding: 16px;
-    height: calc(100vh - 94px);
 }
 </style>

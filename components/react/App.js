@@ -4,57 +4,11 @@ export function App() {
   const [items, setItems] = useState([]);
 
   async function fetchItems() {
-    const fetchedItems = [
-      {
-        id: "e001",
-        name: "Fazer 250",
-        description: "Moto Brunin",
-        value: 20000,
-        image: "../../shared/assets/fz.jpg",
-      },
-      {
-        id: "e002",
-        name: "Ka",
-        description: "Carro Teteu",
-        value: 45000,
-        image: "../../shared/assets/ka.jpg",
-      },
-      {
-        id: "e003",
-        name: "Gol",
-        description: "Carro Léo",
-        value: 50000,
-        image: "../../shared/assets/gol.jpg",
-      },
-      {
-        id: "e004",
-        name: "Civicão",
-        description: "Carro Moço",
-        value: 64000,
-        image: "../../shared/assets/civic.png",
-      },
-      {
-        id: "e005",
-        name: "Peugeot",
-        description: "Carro Junin",
-        value: 70000,
-        image: "../../shared/assets/308.png",
-      },
-      {
-        id: "e006",
-        name: "Jetta",
-        description: "Carro Chefinho",
-        value: 100000,
-        image: "../../shared/assets/jetta.png",
-      },
-    ];
-    setItems(fetchedItems);
-
-    // fetch("http://localhost:3001/carrinho")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setItems(data);
-    //   });
+    fetch("http://localhost:3001/carrinho")
+      .then((response) => response.json())
+      .then((data) => {
+        setItems(data);
+      });
   }
 
   async function handleRemoveItem(id) {

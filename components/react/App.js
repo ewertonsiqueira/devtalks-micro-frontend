@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { BasketItems } from "../react/components/BasketItems";
+
 export function App() {
   const [items, setItems] = useState([]);
 
@@ -7,7 +9,10 @@ export function App() {
     fetch("http://localhost:3001/carrinho")
       .then((response) => response.json())
       .then((data) => {
-        setItems(data);
+        const uniqueItems = Array.from(
+          new Map(data.map((item) => [item.id, item])).values()
+        );
+        setItems(uniqueItems);
       });
   }
 
@@ -17,12 +22,21 @@ export function App() {
     setItems(filteredItems);
   }
 
+  const totalValue = items.reduce((acc, item) => acc + item.value, 0);
+
   useEffect(() => {
     fetchItems();
   }, []);
 
   return (
-    <div style={{ width: "100%", display: "flex", padding: "20px" }}>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        padding: "20px",
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -32,10 +46,21 @@ export function App() {
           gap: "20px",
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            width: "100%",
+            gap: "20px",
+          }}
+        >
+          <BasketItems qtdItems={totalValue} />
+        </div>
+
         {items.length > 0 ? (
-          items.map((item) => (
+          items.map((item, index) => (
             <div
-              key={item.id}
+              key={index}
               style={{
                 display: "flex",
                 alignItems: "center",

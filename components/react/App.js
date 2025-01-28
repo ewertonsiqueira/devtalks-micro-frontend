@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 const App = () => {
     const [val, setVal] = useState(0);
@@ -14,10 +14,7 @@ const App = () => {
 
     return (
         <>
-            <h1>Hello from React</h1>
-            <p>Counter is {val}</p>
-            <input type="button" onClick={() => window.myapp.incrementor()} value="+"></input>
-            <input type="button" onClick={() => window.myapp.decrementor()} value="-"></input>
+            React aqui
         </>
     )
 }

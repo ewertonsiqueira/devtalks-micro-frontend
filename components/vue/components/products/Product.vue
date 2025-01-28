@@ -25,8 +25,17 @@ export default {
             }).format(value);
         },
         addToCart(product) {
-            window.store.addItemToCart(product);
-            console.log(window.store);
+            fetch('http://localhost:3001/carrinho', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(product)
+            }).then((res) => {
+                console.log(res)
+            }).catch((err) => {
+                console.log(err)
+            })
         }
     }
 }

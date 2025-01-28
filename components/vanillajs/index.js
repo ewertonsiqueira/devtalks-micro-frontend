@@ -50,8 +50,7 @@ const styles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f9fa;
-  }
+    }
 
   .card-image img {
     max-width: 100%;
@@ -70,7 +69,8 @@ const styles = `
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
+    text-align: center;
   }
 
   .card-link:hover {
@@ -81,18 +81,18 @@ const styles = `
 const template = `
   <style>${styles}</style>
   <div class="container">
-    <h1 class="title">O que sobrar vende</h1>
+    <h1 class="title">RotaCar</h1>
     <div class="cards-container">
       <div class="card">
         <div class="card-image">
-          <img src="https://png.pngtree.com/png-clipart/20240903/original/pngtree-bmw-blue-cars-png-image_15921774.png" alt="BMW Azul">
+          <img src="./shared/assets/bmw.png">
         </div>
         <a href="/estoque" class="card-link">Ver mais..</a>
       </div>
       
       <div class="card">
         <div class="card-image">
-          <img src="https://media.istockphoto.com/id/1206806317/pt/vetorial/shopping-cart-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=cl3NPzmnu0pRmaRGndYIejbHGe-atORf0JDjzmhX8Z8=" alt="Carrinho de Compras">
+          <img src="./shared/assets/logo_shopping.png" style="padding: 30px">
         </div>
         <a href="/react" class="card-link">Carrinho</a>
       </div>

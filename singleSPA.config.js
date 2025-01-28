@@ -3,7 +3,7 @@ import { registerApplication, start } from 'single-spa'
 registerApplication(
   'catalogo', 
   () => import('./components/vue/index.js'),
-  () => location.pathname === "/catalogo"
+  () => location.pathname === "/estoque"
 );
 
 registerApplication(

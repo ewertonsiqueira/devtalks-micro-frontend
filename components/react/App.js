@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react"
+import { BasketItems } from "./components/BasketItems";
 
-const App = () => {
-    const [val, setVal] = useState(0);
+import React, { useState } from "react";
 
-    useEffect(() => {
-        window.addEventListener('onIncrement', () => {
-            setVal(window.myapp.counter);
-        });
-        window.addEventListener('onDecrement', () => {
-            setVal(window.myapp.counter);
-        });
-    },[])
+export function App() {
+  const [items, setItems] = useState(0);
 
-    return (
-        <>
-            React aqui
-        </>
-    )
+  return (
+    <div style={{ width: "100%", display: "flex", padding: "20px" }}>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%' }}>
+        <BasketItems qtdItems={items} />
+      </div>
+    </div>
+  );
 }
-
-export default App

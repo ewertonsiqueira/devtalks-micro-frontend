@@ -5,7 +5,7 @@ const htmlLifecycles = singleSpaHtml({
       <h1>MicroFrontEnd</h1>
       <div style="display: flex; gap: 20px; margin-top: 20px;">
         <div id="incrementSection" style="text-align: center;">
-          <a href="/vue" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Vue</a>
+          <a href="/catalogo" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Estoque</a>
         </div>
         <div id="decrementSection" style="text-align: center;">
           <a href="/react" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">React</a>

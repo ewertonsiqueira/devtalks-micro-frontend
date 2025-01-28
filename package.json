@@ -35,6 +35,6 @@
     "single-spa-html": "^1.1.2",
     "single-spa-react": "^3.0.1",
     "single-spa-vue": "^1.9.0",
-    "vue": "^2.6.12"
+    "vue": "^2.7.16"
   }
 }

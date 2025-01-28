@@ -1,9 +1,9 @@
 import { registerApplication, start } from 'single-spa'
 
 registerApplication(
-  'vue', 
+  'catalogo', 
   () => import('./components/vue/index.js'),
-  () => location.pathname === "/vue"
+  () => location.pathname === "/catalogo"
 );
 
 registerApplication(

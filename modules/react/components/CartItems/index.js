@@ -1,6 +1,8 @@
 import React from "react";
+import utils from '../../../../shared/resources/utils'
 
-export function BasketItems({ qtdItems }) {
+
+export function CartItems({ qtdItems }) {
   return (
     <div
       style={{
@@ -15,10 +17,10 @@ export function BasketItems({ qtdItems }) {
       }}
     >
       <i
-        class="fa fa-shopping-cart"
+        className="fa fa-shopping-cart"
         style={{ marginRight: "8px", marginBottom: "3px" }}
       />
-      {"R$ " + qtdItems || 0}
+      {utils.toCurrency(qtdItems || 0)}
     </div>
   );
 }

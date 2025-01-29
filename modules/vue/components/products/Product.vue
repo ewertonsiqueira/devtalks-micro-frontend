@@ -9,6 +9,9 @@
 </template>
 
 <script>
+import { showToast } from '../../../../shared/components/Toast';
+import utils from '../../../../shared/resources/utils'
+
 export default {
     name: 'ProductItem',
     props: {
@@ -18,11 +21,8 @@ export default {
         }
     },
     methods: {
-        toCurrency(value) {
-            return new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            }).format(value);
+        toCurrency (value) {
+            return utils.toCurrency(value);
         },
         addToCart(product) {
             fetch('http://localhost:3001/carrinho', {
@@ -31,10 +31,14 @@ export default {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(product)
-            }).then((res) => {
-                console.log(res)
+            }).then(() => {
+                showToast({
+                    message: 'Adicionado ao carrinho',
+                });
             }).catch((err) => {
-                console.log(err)
+                showToast({
+                    message: 'Ocorreu um erro ao adicionar ao carrinho',
+                });
             })
         }
     }

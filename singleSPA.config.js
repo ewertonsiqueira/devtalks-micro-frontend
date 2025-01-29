@@ -2,19 +2,19 @@ import { registerApplication, start } from 'single-spa'
 
 registerApplication(
   'catalogo', 
-  () => import('./components/vue/index.js'),
+  () => import('./modules/vue/index.js'),
   () => location.pathname === "/estoque"
 );
 
 registerApplication(
   'react',
-  () => import('./components/react/index.js'),
-  () => location.pathname === "/react"
+  () => import('./modules/react/index.js'),
+  () => location.pathname === "/carrinho"
 );
 
 registerApplication(
   'vanillajs',
-  () => import('./components/vanillajs/index.js'),
+  () => import('./modules/vanillajs/index.js'),
   () => location.pathname === "/"
 );
 

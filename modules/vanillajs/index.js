@@ -8,6 +8,7 @@ const styles = `
     align-items: center;
     font-family: Arial, sans-serif;
     padding: 20px;
+    height: calc(100vh - 78.72px);
     background-color: #f5f5f5;
   }
 
@@ -87,14 +88,14 @@ const template = `
         <div class="card-image">
           <img src="./shared/assets/bmw.png">
         </div>
-        <a href="/estoque" class="card-link">Ver mais..</a>
+        <a href="/estoque" class="card-link">Estoque</a>
       </div>
       
       <div class="card">
         <div class="card-image">
           <img src="./shared/assets/logo_shopping.png" style="padding: 30px">
         </div>
-        <a href="/react" class="card-link">Carrinho</a>
+        <a href="/carrinho" class="card-link">Carrinho</a>
       </div>
     </div>
   </div>

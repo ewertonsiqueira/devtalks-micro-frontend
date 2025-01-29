@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { CartItems } from "./components/CartItems/index.js";
+import { Button } from "./components/Button/index.js";
 
-import { BasketItems } from "../react/components/BasketItems";
-
-import { Button } from "./components/Button";
+import { showToast } from "../../shared/components/Toast.js"
 
 export function App() {
   const [items, setItems] = useState([]);
@@ -21,6 +21,17 @@ export function App() {
   async function handleRemoveItem(id) {
     fetch(`http://localhost:3001/carrinho/${id}`, {
       method: "DELETE",
+    })
+    .then(_ => {
+      showToast({
+        message: "O item foi removido do carrinho com sucesso!"
+      });
+    })
+    .catch(_ => {
+      showToast({
+        message: "Ocorreu um erro ao remover o item do carrinho!",
+        type: "error"
+      });
     });
 
     const filteredItems = items.filter((item) => item.id !== id);
@@ -74,7 +85,7 @@ export function App() {
               justifyContent: "flex-end",
             }}
           >
-            <BasketItems qtdItems={totalValue} />
+            <CartItems qtdItems={totalValue} />
           </div>
         </div>
 
@@ -129,7 +140,7 @@ export function App() {
                 }}
                 title="Remover item"
               >
-                <i class="fa fa-trash-o" />
+                <i className="fa fa-trash-o" />
               </button>
             </div>
           ))

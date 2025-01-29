@@ -22,6 +22,10 @@ export function App() {
     setItems(filteredItems);
   }
 
+  async function handleRedirect() {
+    window.location.href = "/estoque";
+  }
+
   const totalValue = items.reduce((acc, item) => acc + item.value, 0);
 
   useEffect(() => {
@@ -113,7 +117,26 @@ export function App() {
             </div>
           ))
         ) : (
-          <p>Sem carros selecionados</p>
+          <>
+            <p>
+              Sem carros selecionados, volte para a tela de estoque para ver
+              mais opções!
+            </p>{" "}
+            <button
+              onClick={handleRedirect}
+              style={{
+                height: "40px",
+                width: "100px",
+                color: "white",
+                borderRadius: "8px",
+                border: "none",
+                background: "#2c3e50",
+                cursor: "pointer",
+              }}
+            >
+              Ver estoque
+            </button>
+          </>
         )}
       </div>
     </div>

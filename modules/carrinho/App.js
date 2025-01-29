@@ -110,8 +110,8 @@ export function App() {
             }}
           >
             <CartItems qtdItems={totalValue} />
-            <Button title="Finalizar compra" event={goToCheckout} />
-            <Button title="Limpar carrinho" event={clearCart} />
+            <Button title="Finalizar compra" event={goToCheckout} disabled={!items.length} />
+            <Button title="Limpar carrinho" event={clearCart} disabled={!items.length} />
           </div>
         </div>
 

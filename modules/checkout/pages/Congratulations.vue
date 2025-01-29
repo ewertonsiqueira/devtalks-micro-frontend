@@ -1,13 +1,20 @@
 <template>
-    <div class="full-screen-background"/>
+    <div class="full-screen-background">
+        <CustomButton color="green" :onClick="goToHome">Finalizar compra</CustomButton>
+    </div>
   </template>
   
   <script>
+  import CustomButton from '../components/CustomButton.vue';
+
   export default {
     name: 'Congratulations',
-    data () {
-      return {
-        message: 'Congratulations!'
+    components: {
+      CustomButton
+    },
+    methods: {
+      goToHome() {
+        this.$router.push('/');
       }
     }
   }

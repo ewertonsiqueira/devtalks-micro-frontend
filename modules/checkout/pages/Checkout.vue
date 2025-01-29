@@ -16,8 +16,15 @@
     methods: {
       finalizePurchase() {
        showToast({ message: 'Compra finalizada com sucesso!' });
-       setTimeout(() => {
-        this.$router.push('/checkout/congratulations');
+       
+       setTimeout(async () => {
+        await fetch('http://localhost:3000/carrinho/clear', {
+          method: 'POST'
+        })
+        .finally(() => {
+            this.$router.push('/checkout/congratulations');
+        });
+
        }, 2000);
       }
     }

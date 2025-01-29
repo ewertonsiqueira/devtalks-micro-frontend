@@ -1,12 +1,13 @@
 import React from "react";
 
-export function Button({ title, event }) {
+export function Button({ title, event, disabled }) {
   return (
     <button
       onClick={event}
+      disabled={disabled}
       style={{
         height: "40px",
-        background: "#2c3e50",
+        background: disabled ? "#bdc3c7" : "#2c3e50",
         borderRadius: "6px",
         border: "none",
         color: "white",
@@ -15,7 +16,7 @@ export function Button({ title, event }) {
         textDecoration: "none",
         display: "inline-block",
         fontSize: "16px",
-        cursor: "pointer",
+        cursor: disabled ? "not-allowed" : "pointer",
       }}
     >
       {title}

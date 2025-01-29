@@ -1,21 +1,27 @@
 import { registerApplication, start } from 'single-spa'
 
 registerApplication(
+  'menu_principal',
+  () => import('./modules/menu_principal/index.js'),
+  () => location.pathname === "/"
+);
+
+registerApplication(
   'catalogo', 
-  () => import('./modules/vue/index.js'),
+  () => import('./modules/estoque/index.js'),
   () => location.pathname === "/estoque"
 );
 
 registerApplication(
-  'react',
-  () => import('./modules/react/index.js'),
+  'carrinho',
+  () => import('./modules/carrinho/index.js'),
   () => location.pathname === "/carrinho"
 );
 
 registerApplication(
-  'vanillajs',
-  () => import('./modules/vanillajs/index.js'),
-  () => location.pathname === "/"
+  'checkout',
+  () => import('./modules/checkout/index.js'),
+  () => location.pathname.includes("/checkout")
 );
 
 start();

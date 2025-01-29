@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { BasketItems } from "../react/components/BasketItems";
 
+import { Button } from "./components/Button";
+
 export function App() {
   const [items, setItems] = useState([]);
 
@@ -17,6 +19,10 @@ export function App() {
   }
 
   async function handleRemoveItem(id) {
+    fetch(`http://localhost:3001/carrinho/${id}`, {
+      method: "DELETE",
+    });
+
     const filteredItems = items.filter((item) => item.id !== id);
 
     setItems(filteredItems);
@@ -53,12 +59,23 @@ export function App() {
         <div
           style={{
             display: "flex",
-            justifyContent: "flex-end",
             width: "100%",
             gap: "20px",
           }}
         >
-          <BasketItems qtdItems={totalValue} />
+          <div style={{ display: "flex", width: "100%" }}>
+            <Button title="Mais opções no estoque" event={handleRedirect} />
+          </div>
+
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <BasketItems qtdItems={totalValue} />
+          </div>
         </div>
 
         {items.length > 0 ? (
@@ -117,26 +134,12 @@ export function App() {
             </div>
           ))
         ) : (
-          <>
+          <div>
             <p>
               Sem carros selecionados, volte para a tela de estoque para ver
               mais opções!
             </p>{" "}
-            <button
-              onClick={handleRedirect}
-              style={{
-                height: "40px",
-                width: "100px",
-                color: "white",
-                borderRadius: "8px",
-                border: "none",
-                background: "#2c3e50",
-                cursor: "pointer",
-              }}
-            >
-              Ver estoque
-            </button>
-          </>
+          </div>
         )}
       </div>
     </div>

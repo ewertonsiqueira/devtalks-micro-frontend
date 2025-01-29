@@ -18,6 +18,25 @@ export function App() {
       });
   }
 
+  async function clearCart() {
+    fetch("http://localhost:3000/carrinho/clear", {
+      method: "POST",
+    })
+    .then(_ => {
+      showToast({
+        message: "O carrinho foi limpo com sucesso!"
+      });
+
+      setItems([]);
+    })
+    .catch(_ => {
+      showToast({
+        message: "Ocorreu um erro ao limpar o carrinho!",
+        type: "error"
+      });
+    });
+  }
+
   async function handleRemoveItem(id) {
     fetch(`http://localhost:3001/carrinho/${id}`, {
       method: "DELETE",
@@ -83,9 +102,11 @@ export function App() {
               width: "100%",
               display: "flex",
               justifyContent: "flex-end",
+              gap: "12px"
             }}
           >
             <CartItems qtdItems={totalValue} />
+            <Button title="Limpar carrinho" event={clearCart} />
           </div>
         </div>
 

@@ -5,6 +5,7 @@ export function Button({ title, event }) {
     <button
       onClick={event}
       style={{
+        height: "40px",
         background: "#2c3e50",
         borderRadius: "6px",
         border: "none",

@@ -1,16 +1,15 @@
 import React from "react";
 
-export function Button({ title, eventBuy }) {
+export function Button({ title, event }) {
   return (
     <button
-      onClick={eventBuy}
+      onClick={event}
       style={{
-        margin: '20px',
-        background: "#dfdfdf",
+        background: "#2c3e50",
         borderRadius: "6px",
         border: "none",
-        color: "#212121",
-        padding: "15px 32px",
+        color: "white",
+        padding: "12px",
         textAlign: "center",
         textDecoration: "none",
         display: "inline-block",
